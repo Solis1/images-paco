@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/pacoelchato_3Dj_icon.ico">
+    <title>Images Creator</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="myApp" ng-controller="MainController">
+    <div id="main">
+        <header class="">
+           <nav class="navbar navbar-expand-lg">
+              <a href="http://pacoelchato.com/" target="_blank"><img id="logo" src="img/pacoelchato.svg" alt="PacoElChato" /></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                   <i class="fas fa-cogs navbar-toggler-icon"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="preguntas.html">Preguntas Ejemplos</a>
+                  </li>
+                </ul>
+              </div>
+           </nav>
+        </header>
+        <!--Directiva con el menu de pestañas para navegar en el collapse.-->
+        <app-nav></app-nav>
+        <main class="container tab-content">
+            <div id="read" class="mt-3 tab-pane fade show active">
+               <h2>Rango para Numero de Temas</h2>
+               <div class="row justify-content-center">
+                    <div class="col-md-2 ml-3">
+                         <label for="">Num Max</label>
+                         <input type="number" min="5" max="100" value="5" class="max numbers" step="5"/>
+                    </div>
+                    <div class="col-md-2 ml-3">
+                        <label for="">Num Min</label>
+                        <input type="number" min="1" max="100" value="1" class="min numbers" step="5"/>
+                    </div>
+                    <p class="ml-3">
+                      <a class="btn btn-primary names" data-toggle="collapse" href="#collapseNames" aria-expanded="false" aria-controls="collapseNames">
+                        Conf. de Nombres de Archivos
+                      </a>
+                    </p>
+                </div>
+                 <div class="collapsing mt-3" id="collapseNames">
+                      <div class="card card-body">
+                          <div class="row">
+                              <!--Directiva con el select que contiene las materias.-->
+                              <app-materias info="materiasRead"></app-materias>
+                               <!--Directiva con los radio buttons que conforman las actividades.-->
+                              <app-options></app-options>
+                              <!--Directiva para el input type text de nombre libre -->
+                              <app-input data="inputFreeRead"></app-input>
+                          </div>
+                      </div>
+               </div>
+                <div class="row justify-content-center mt-2">
+                    <app-loading info="bloque1"></app-loading>
+                </div>
+                <div class="row bloque1">
+                    <app-buttons class="col-md-3"></app-buttons>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="glosario1"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="lectura1"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="examen1"></canvas>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <app-loading info="bloque2"></app-loading>
+                </div>
+                <div class="row bloque2">
+                    <app-buttons class="col-md-3"></app-buttons>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="glosario2"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="lectura2"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="examen2"></canvas>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <app-loading info="bloque3"></app-loading>
+                </div>
+                <div class="row bloque3">
+                   <app-buttons class="col-md-3"></app-buttons>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="glosario3"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="lectura3"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="examen3"></canvas>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <app-loading info="bloque4"></app-loading>
+                </div>
+                <div class="row bloque4">
+                    <app-buttons class="col-md-3"></app-buttons>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="glosario4"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="lectura4"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="examen4"></canvas>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <app-loading info="bloque5"></app-loading>
+                </div>
+                <div class="row bloque5">
+                     <app-buttons class="col-md-3"></app-buttons>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="glosario5"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="lectura5"></canvas>
+                    </div>
+                    <div class="col-md-3 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="examen5"></canvas>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center align-items-center mt-5">
+                    <div class="download col-md-2 col-sm-4 alert alert-primary mb-5">
+                        <a class="lnkDownload" href="#" value="save-read">Guardar Imagenes</a>
+                    </div>
+                </div>
+            </div>
+            <div id="help" class="tab-pane fade">
+                <div class="row justify-content-center mt-5">
+                    <div class="mt-2">
+                        <app-loading info="bloques"></app-loading>
+                    </div>
+                    <p>
+                      <a class="btn btn-primary ml-3 mt-2" data-toggle="collapse" href="#collapseNamesHelp" aria-expanded="false" aria-controls="collapseNames">
+                        Escoge Nombres
+                      </a>
+                    </p>
+                </div>
+                <div class="collapsing mt-3" id="collapseNamesHelp">
+                      <div class="card card-body">
+                          <div class="row">
+                              <app-materias info="materiasHelp"></app-materias>
+                              <app-input data="inputFreeHelp"></app-input>
+                          </div>
+                      </div>
+               </div>
+                <div class="row">
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="bloque1"></canvas>
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="bloque2"></canvas>
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="bloque3"></canvas>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="bloque4"></canvas>
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="bloque5"></canvas>
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center mt-5">
+                    <div class="download col-md-2 col-sm-4 alert alert-primary mb-5">
+                        <a class="lnkDownload" href="#" value="save-help">Guardar Imagenes</a>
+                    </div>
+                </div>
+            </div>
+            <div id="exercise" class="tab-pane fade">
+                <div class="row justify-content-center mt-5">
+                    <app-loading info="exercise" class="mt-2"></app-loading>
+                     <p>
+                      <a class="btn btn-primary ml-3 mt-2" data-toggle="collapse" href="#collapseNamesExercise" aria-expanded="false" aria-controls="collapseNames">
+                        Escoge Nombres
+                      </a>
+                    </p>
+                </div>
+                <div class="collapsing mt-3" id="collapseNamesExercise">
+                      <div class="card card-body">
+                          <div class="row">
+                              <app-materias info="materiasExercise"></app-materias>
+                              <app-input data="inputFreeExercise"></app-input>
+                          </div>
+                      </div>
+               </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                        <canvas id="exercise_canvas"></canvas>
+                    </div>
+                    <div class="col-md-4 show-pop" data-toggle="popover" data-placement="right" data-content="Eliminar con la tecla Supr">
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center mt-5">
+                    <div class="download col-md-2 col-sm-4 alert alert-primary mb-5">
+                        <a class="lnkDownload" href="#" value="save-exercise">Guardar Imagenes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="jumbotron tab-pane fade" id="info">
+                <h1>Ayuda para usar herramienta <i class="fas fa-smile"></i></h1>
+                <p>Esta herramienta fue desarrollado con el proposito de poder facilitar la creacion de imagenes de una manera mas eficiente, consistente y rapida para las
+                diferentes secciones de la APPporGrado.</p>
+                <h2>Agregar una Imagen</h2>
+                <p>Pasos para agregar una imagen: </p>
+                <ol>
+                    <li>Para agregar una nueva imagen haremos click en el boton Examinar ubicado en la parte superior.</li>
+                    <li>Desues aparecera una ventana donde buscaremos la imagen que deseamos agregar, recomendamos que las
+                    imagenes no sean de un tamaño tan grande para que no haya conflictos al renderizarla y ponerlas en el canvas.</li>
+                    <ul>
+                        <li><em>NOTA: Recomendamos sacar las imagenes en un formato .png, pueden usar estas paginas para buscar las imagenes que deseen: </em></li>
+                        <ul>
+                            <li><a href="https://www.flaticon.com/" target="_blank">Flaticon</a></li>
+                            <li><a href="https://thenounproject.com/" target="_blank">Noun Project</a></li>
+                        </ul>
+                    </ul>
+                </ol>
+                <div class="dropdown-divider"></div>
+                <h2>Eliminar un elemento</h2>
+                <p>Pasos para eliminar una imagen: </p>
+                <ol>
+                    <li>Posicionar el cursor sobre la imagen y darle doble click, debemos de asegurarnos de darle doble click, ya que de lo contrario no se podra eliminar
+                    el objecto seleccionado</li>
+                    <li>Presionar la tecla Supr o Delete, dependiendo del idioma de su teclado</li>
+                    <li>Aparecera una ventana confirmando la accion seleccionada, si presionamos Si, la imagen se eliminara, de presionar No, la imagen seguira observandose.</li>
+                </ol>
+                <ul>
+                    <li><em>NOTA: Las imagenes que ya se encuentran sobre los canvas de manera predeterminada pueden ser removidas, sin embargo estas deben de ser repuestas por
+                    alguna que sea de su gusto sirviendo de la misma manera que la que fue reemplazada. </em><strong>El fondo, por el momento, no puede ser modificado.</strong></li>
+                </ul>
+                <div class="dropdown-divider"></div>
+                <h2>Guardar elementos</h2>
+                <p>Pasos para guardar una imagen: </p>
+                <ul>
+                    <li><em>NOTA: Es importante que al momento de seguir estos pasos todas las imagenes de la seccion con la que estamos trabajando esten listas y terminadas,
+                    ya que al momento de guardar, todos los canvas seran guardados.</em></li>
+                </ul>
+                <ol>
+                    <li>Al fondo de las diferentes secciones se encuentra un boton Guardar Imagenes, presionarlo.</li>
+                    <li>A continuacion se descargar un .zip en nuestra carpeta predeterminada de Descargas en nuestro Navegador.</li>
+                </ol>
+                <div class="dropdown-divider"></div>
+                <h2>Nombres</h2>
+                <p>Como puede variar la cantidad de imagenes que son necesarias para cierta seccion, se ha añadido Num Max y Num Min para definir los diferentes rangos. Debido a que tenemos solamente 5 canvas para desarrollar imagenes, se recomienda ir moviendo el rango dependiendo de la cantidad de imagenes que necesitaremos. Siempre debe de existir una diferencia de 4 entre rangos, si no se cumple con esta condicion no se descargaran las imagenes.</p>
+                <p>Con el boton de escoger nombres, usted debe de elegir el reto del cual se esta haciendo las imagenes, en el caso que se requiera, y el nombre de la materia. Al entrar en el aplicacion, traera valores por default asi que debera de configurarlo para que asi las imagenes salgan con los nombres correctos-</p>
+                <div class="dropdown-divider"></div>
+                <h2>Agregar o quitar elementos estaticos</h2>
+                <p>Llamamos elementos estaticos a aquellos que el canvas trae por default, como son las letras y numeros; en el caso que estas no sean necesarias o que quieran ser reemplazadas se han agregado los botonos para agregar o quitar estos elementos.</p>
+            </div>
+        </main>
+        <footer>
+            <small>Desarrollado por el departamento de TI en Paco el chato <i class="fa fa-registered" aria-hidden="true"></i></small>
+        </footer>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5></h5>
+                    <button type="button" class="close" data-dismiss="modal"> <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <div class="modal-body"> ¿Estas seguro de eliminar el objeto seleccionado? </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="delete" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/angular.js"></script>
+    <script src="js/components/app.js"></script>
+    <script src="js/components/MainController.js"></script>
+    <script src="js/components/navbar/appNav.js"></script>
+    <script src="js/components/options/appOptions.js"></script>
+    <script src="js/components/materias/appMaterias.js"></script>
+    <script src="js/components/buttons-del-add/appButtons.js"></script>
+    <script src="js/components/loadings/appLoading.js"></script>
+    <script src="js/components/input-free/appInput.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/fabric.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/jszip.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="js/canvas-ready.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

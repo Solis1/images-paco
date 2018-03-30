@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css?family=Itim');
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+#main{
+    min-height: 100%;
+    position: relative;
+    padding: 0px !important;
+}
+header{
+    background-color: rgb(42, 182, 255);
+    transition: padding-left 2s, height 4s;
+		font-family: 'Arvo', serif;
+}
+.fix-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-left: 45%;
+    z-index: 10;
+}
+button.navbar-toggler{
+    font-size: 35px;
+    border-color: black;
+}
+button.navbar-toggler:hover{
+    background-color: rgb(34, 147, 206);
+    transition: background-color 2s;
+    cursor: pointer;
+}
+.smaller-menu{
+    font-size: 25px !important;
+}
+.smaller-img{
+    width: 80px;
+}
+canvas{
+    border: 1px solid black;
+    margin-left: 100px;
+    margin-top: 20px
+}
+select{
+    margin-left: 10px;
+    width: 200px;
+}
+div.download{
+    text-align: center;
+}
+div.popover{
+    left: 57px !important;
+    width: 125px;
+}
+div.bs-popover-left{
+    left: 118px !important;
+}
+.read-canvas {
+    width: 350px;
+}
+.custom-file-control:lang(en)::before{
+    content: "Examinar";
+}
+.popover{
+    color: #0c5460;
+    background-color: #d1ecf1;
+}
+.popover .arrow{
+    display: none;
+}
+.popover-body{
+    color: #0c5460;
+    text-align: center;
+}
+.dropdown-divider{
+    border-top-color: black !important;
+}
+h1{
+    margin-bottom: 10px;
+}
+.jumbotron{
+    padding-top: 20px !important;
+    margin-bottom: 0px !important;
+}
+footer {
+    background: rgb(42, 182, 255);
+    width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 5px 30px 5px 30px;
+}
+header img{
+    width: 120px;
+}
+input.numbers{
+    display: block !important;
+    text-align: center;
+		width: 100%;
+}
+label{
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+}
+div.col-md-1, app-buttons.col-md-3, div.col-md-2{
+    text-align: center;
+}
+.col-md-3 button{
+    margin-top: 15px;
+}
+.names{
+    margin: 30px 0px 0px 20px;
+}
+container-names{
+    padding: 0px 0px 20px 0px;
+}
+.controls{
+    text-align: center;
+}
+.delete-img:enabled, .add-img:enabled, .delete-num:enabled, .add-num:enabled{
+    cursor: pointer;
+    min-width: 60px;
+}
+.delete-img, .add-img, .delete-num, .add-num{
+    min-width: 60px;
+}
+select[ng-name="bloquesHelp"]{
+    display: none;
+}
+div#read h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+/* The container */
+.wrapper {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.wrapper:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.wrapper input:checked ~ .checkmark {
+    background-color: #0e647d;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.wrapper input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.wrapper .checkmark:after {
+ 	top: 8px;
+	left: 8px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.wrapper:hover input ~ .check {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.wrapper input:checked ~ .check {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.check:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.wrapper input:checked ~ .check:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.wrapper .check:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.custom-file-control:lang(en)::after {
+    content: "";
+}
+.layer{
+    width: 45%;
+}
+.blockA, .blockB{
+    padding: 20px;
+    background-color: rgb(97,143,48);
+    margin-top: -10px;
+    border-radius: 10px;
+    list-style: none;
+    max-width: 400px;
+}
+
+.blockA li, .blockB li{
+    margin: 10px 5px 5px 10px;
+    padding: 10px 10px;
+    cursor: move;
+}
+
+.blockB li{
+    background-color: rgb(141,206,69);
+    display: inline-block;
+    text-align: center;
+    min-width: 10px;
+    color: #fff;
+}
+
+.title{
+    color: #fff;
+    padding: 3px 10px;
+    display: inline-block;
+    position: relative;
+    background-color: rgb(45,66,22);
+    z-index: 1000;
+}
+
+h4{
+	background-color: white;
+	color: black;
+	margin: 0;
+}
+
+@media screen and (max-width: 450px) {
+    label.custom-file{
+        width: 350px;
+    }
+    input.imageLoader{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 1090px){
+    .col-md-3, col-md-4 {
+        flex: 0 0 20%;
+    }
+}
+@media screen and (max-width: 900px){
+    .col-md-3, col-md-4 {
+        flex: initial;
+        max-width: initial;
+        margin-left: 20%;
+    }
+    app-buttons.col-md-3{
+        margin-left: 0%;
+    }
+}
+@media screen and (max-width: 511px){
+    .col-md-3, col-md-4 {
+        margin-left: initial;
+    }
+}
