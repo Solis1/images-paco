@@ -1,7 +1,22 @@
 $(document).ready(()=>{
+  var user = "";
+  var anwsersCorrectly = 0;
+
+  if(localStorage['user'] != null){
+      if(localStorage['grade'] != null){
+        $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+localStorage['user']+"!! La ultima vez obtuviste "+localStorage['grade']+"/5</div>");
+      }else{
+        $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+localStorage['user']+"!!</div>");
+      }
+  }else{
+    bootbox.prompt("Hola, bienvenido a nuestro examen de <code>Varias Cosas</code>. ¿Cual es tu nombre?", (result)=>{
+      user = result;
+      localStorage['user'] = user;
+      $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+user+"!!</div>")
+    })
+  }
   Survey.Survey.cssType = "bootstrap";
   Survey.defaultBootstrapCss.navigationButton = "btn btn-success";
-  var anwsersCorrectly = 0;
 
   var MyTextValidator = (function (_super) {
         Survey.__extends(MyTextValidator, _super);
@@ -130,7 +145,7 @@ $(document).ready(()=>{
                     "url": "https://restcountries.eu/rest/v1/all"
                 },
                 "name": "countries",
-                "title": "Selecciona los paises que conforman Norteamerica",
+                "title": "Selecciona los países que conforman Norteamérica.",
                 "description": "Es un subcontinente del continente americano y considerado solo por los angloparlantes, por la diferencia cultural y geológica (cratones) un continente del supercontinente de América. Yace en el hemisferio norte y casi por completo en el hemisferio occidental y limita al norte con el océano Ártico, al este con el océano Atlántico, al sureste con el mar Caribe y al suroeste con el océano Pacífico.",
                 "validators": [
                     {
@@ -143,8 +158,8 @@ $(document).ready(()=>{
                 "isRequired": true,
                 "requiredErrorText": "Por favor responda la pregunta.",
                 "name": "range",
-                "title": "Cuantas años tiene una decada?",
-                "description": "Una decada es menor a 50 y mayor a 5.",
+                "title": "¿Cuántos años tiene una década?",
+                "description": "Una década es menor a 50 y mayor a 5.",
                 "validators": [
                     {
                         type: "yearvalidator"
@@ -156,7 +171,7 @@ $(document).ready(()=>{
                 "isRequired": true,
                 "requiredErrorText": "Por favor responda la pregunta.",
                 "name": "lifepriopity",
-                "title": "Drechos de los niños:",
+                "title": "Derechos de los niños:",
                 "description": "Los derechos del niño son un conjunto de normas jurídicas que protegen a las personas hasta cierta edad. Todos y cada uno de los derechos de la infancia son inalienables e irrenunciables, por lo que ninguna persona puede vulnerarlos o desconocerlos bajo ninguna circunstancia.",
                 "validators": [
                     {
@@ -164,7 +179,7 @@ $(document).ready(()=>{
                     }
                 ],
                 "isRequired": true,
-                "choices": ["Derecho de prioridad", "Derecho a Matar", "Derecho a Ser golpeado", "Drechos a ser Explotado", "Derecho a no ser discriminado"]
+                "choices": ["Derecho de prioridad", "Derecho a matar", "Derecho a ser golpeado", "Derecho a ser explotado", "Derecho a no ser discriminado"]
             },
             {
                 "type": "imagepicker",
@@ -199,7 +214,7 @@ $(document).ready(()=>{
                 "name": "memo",
                 "isRequired": true,
                 "requiredErrorText": "Por favor responda la pregunta.",
-                "title": "Quien es el padre de la patria? (Escribe en minusculas)",
+                "title": "¿Quién es el padre de la patria? (Escribe en minúsculas) ",
                 "description": "Suele ser un líder considerado clave, cuya biografía se mitifica para convertirla en fuente de inspiración patriótica, intensificando sus rasgos simbólicos, heroicos y de autoridad, tanto política como moral. Su imagen es utilizada como símbolo nacional, mostrándose en monumentos, monedas, billetes, sellos, carteles, etc.",
                 "validators": [
                     {
@@ -218,8 +233,11 @@ $(document).ready(()=>{
     };
 
     surveyTags.onComplete.add(function (result) {
-            $('#surveyResultTags').text("Respuestas correctas: "+anwsersCorrectly);
+        $("#message-user").hide();
+        localStorage['grade'] = anwsersCorrectly;
+        $('#surveyResultTags').text(user+" tuviste estas respuestas correctas: "+anwsersCorrectly);
     });
     $("#surveyTags").Survey({model: surveyTags});
     $(".btn.btn-success.sv_complete_btn").attr("value", "Revisar");
+    $($("#sq_102").find("span")[2]).text("Mueve aqui los elementos.");
 });
