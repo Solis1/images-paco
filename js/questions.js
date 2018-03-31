@@ -31,6 +31,10 @@ $(document).ready(()=>{
               anwsersCorrectly++
               return null;
             }
+            return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
+        };
+        MyTextValidator.prototype.getDefaultErrorText = function (name) {
+            return "El padre de la patria es miguel hidalgo.";
         };
         return MyTextValidator;
     })(Survey.SurveyValidator);
@@ -53,6 +57,10 @@ $(document).ready(()=>{
                 anwsersCorrectly++
                 return null;
             }
+            return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
+        };
+        YearValidator.prototype.getDefaultErrorText = function (name) {
+            return "La respuesta correcta es 10.";
         };
         return YearValidator;
     })(Survey.SurveyValidator);
@@ -71,16 +79,15 @@ $(document).ready(()=>{
             return "citiesvalidator";
         };
         CitiesValidator.prototype.validate = function (value, name) {
-            if (value.length == 3 && value.includes("Mexico") && value.includes("United States") && value.includes("Canada")) {
+            if (value.length == 3 && value.includes("México") && value.includes("Estados Unidos") && value.includes("Canadá")) {
                 anwsersCorrectly++
                 return null;
             }
-            // return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
-            // console.log(value);
+            return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
         };
-        // CitiesValidator.prototype.getDefaultErrorText = function (name) {
-        //     return "Los paises de Norteamerica son 3.";
-        // }
+        CitiesValidator.prototype.getDefaultErrorText = function (name) {
+            return "Los paises de Norteamerica son Canadá, Estados Unidos y México.";
+        }
         return CitiesValidator;
     })(Survey.SurveyValidator);
     Survey.CitiesValidator = CitiesValidator;
@@ -103,6 +110,10 @@ $(document).ready(()=>{
                 anwsersCorrectly++
                 return null;
             }
+            return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
+        };
+        RightsValidator.prototype.getDefaultErrorText = function (name) {
+            return "Los derechos correctos son de prioridad y a no ser discriminado.";
         };
         return RightsValidator;
     })(Survey.SurveyValidator);
@@ -121,11 +132,14 @@ $(document).ready(()=>{
             return "imgvalidator";
         };
         ImgValidator.prototype.validate = function (value, name) {
-          console.log(value);
             if (value == "lion") {
                 anwsersCorrectly++
                 return null;
             }
+            return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
+        };
+        ImgValidator.prototype.getDefaultErrorText = function (name) {
+            return "La imagen corecta es la del León.";
         };
         return ImgValidator;
     })(Survey.SurveyValidator);
@@ -142,7 +156,8 @@ $(document).ready(()=>{
                 "isRequired": true,
                 "requiredErrorText": "Por favor responda la pregunta.",
                 "choicesByUrl": {
-                    "url": "https://restcountries.eu/rest/v1/all"
+                  "url": "https://restcountries.eu/rest/v1/all",
+                  "valueName": "translations.es"
                 },
                 "name": "countries",
                 "title": "Selecciona los países que conforman Norteamérica.",
@@ -229,14 +244,16 @@ $(document).ready(()=>{
     window.surveyTags = new Survey.Model(jsonTags);
 
     surveyTags.data = {
-        countries: ['Mexico']
+        countries: ['México']
     };
 
     surveyTags.onComplete.add(function (result) {
-        $("#message-user").hide();
-        localStorage['grade'] = anwsersCorrectly;
-        $('#surveyResultTags').text(user+" tuviste estas respuestas correctas: "+anwsersCorrectly);
+          $("#message-user").hide();
+          localStorage['grade'] = anwsersCorrectly;
+          $('#surveyResultTags').text(user+" tuviste estas respuestas correctas: "+anwsersCorrectly);
     });
+
+
     $("#surveyTags").Survey({model: surveyTags});
     $(".btn.btn-success.sv_complete_btn").attr("value", "Revisar");
     $($("#sq_102").find("span")[2]).text("Mueve aqui los elementos.");
