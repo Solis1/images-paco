@@ -1,13 +1,9 @@
 $(document).ready(()=>{
   var user = "";
-  var anwsersCorrectly = 0;
 
   if(localStorage['user'] != null){
-      if(localStorage['grade'] != null){
-        $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+localStorage['user']+"!! La ultima vez obtuviste "+localStorage['grade']+"/5</div>");
-      }else{
-        $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+localStorage['user']+"!!</div>");
-      }
+      user = localStorage['user'];
+      $("main").prepend("<div id='message-user' class='alert alert-info'>¡¡Buena Suerte "+user+"!!</div>");
   }else{
     bootbox.prompt("Hola, bienvenido a nuestro examen de <code>Varias Cosas</code>. ¿Cual es tu nombre?", (result)=>{
       user = result;
@@ -28,7 +24,6 @@ $(document).ready(()=>{
         };
         MyTextValidator.prototype.validate = function (value, name) {
             if (value == "miguel hidalgo") {
-              anwsersCorrectly++
               return null;
             }
             return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
@@ -54,7 +49,6 @@ $(document).ready(()=>{
         };
         YearValidator.prototype.validate = function (value, name) {
             if (value == 10) {
-                anwsersCorrectly++
                 return null;
             }
             return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
@@ -80,7 +74,6 @@ $(document).ready(()=>{
         };
         CitiesValidator.prototype.validate = function (value, name) {
             if (value.length == 3 && value.includes("México") && value.includes("Estados Unidos") && value.includes("Canadá")) {
-                anwsersCorrectly++
                 return null;
             }
             return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
@@ -107,7 +100,6 @@ $(document).ready(()=>{
         RightsValidator.prototype.validate = function (value, name) {
           console.log(value);
             if (value.length == 2 && value.includes("Derecho de prioridad") && value.includes("Derecho a no ser discriminado")) {
-                anwsersCorrectly++
                 return null;
             }
             return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
@@ -133,7 +125,6 @@ $(document).ready(()=>{
         };
         ImgValidator.prototype.validate = function (value, name) {
             if (value == "lion") {
-                anwsersCorrectly++
                 return null;
             }
             return new Survey.ValidatorResult(null, new Survey.CustomError(this.getErrorText(name)));
@@ -249,8 +240,7 @@ $(document).ready(()=>{
 
     surveyTags.onComplete.add(function (result) {
           $("#message-user").hide();
-          localStorage['grade'] = anwsersCorrectly;
-          $('#surveyResultTags').text(user+" tuviste estas respuestas correctas: "+anwsersCorrectly);
+          $('#surveyResultTags').text(user+" terminaste todo tu examen. FELICIDADES");
     });
 
 
