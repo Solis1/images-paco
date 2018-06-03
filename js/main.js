@@ -1,12 +1,16 @@
 $(document).ready(function() {
 
   loadImage("materiasRead", 1);
+  loadImage("materiasHelp", 1);
+  // loadImage("materiasHelp", 1);
 
     $(document).on("change", "select[ng-name='grados']", function(){
-      console.log(typeof $(this).val());
       loadImage("materiasRead", parseInt($(this).val()));
     });
 
+    $(document).on("change", "select[ng-name='gradosHelp']", function(){
+      loadImage("materiasHelp", parseInt($(this).val()));
+    });
 
     $(document).on("change", ".check-title", function(){
         var parent = $(this).parent().parent();
@@ -688,6 +692,10 @@ var loadImage = (info, level) =>{
       }else{
         mainCanvas[i].setBackgroundImage('img/levels_prim/rombo_'+level_color+'.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
       }
+    }
+  }else if(info == 'materiasHelp'){
+    for (var i = 15; i < 20; i++) {
+      mainCanvas[i].setBackgroundImage('img/levels_prim/pentE_'+level_color+'.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
     }
   }
 
