@@ -2,7 +2,6 @@ var mainCanvas = [];
 var glosario1 = new fabric.Canvas("glosario1");
         glosario1.setWidth(180);
         glosario1.setHeight(180);
-        glosario1.setBackgroundImage('img/pentagono_cafe.png', glosario1.renderAll.bind(glosario1)); 
         img1 = new Image();
         img1.src = "img/numbers/1.png";
         var img1 = new fabric.Image(img1, {
@@ -20,14 +19,15 @@ var glosario1 = new fabric.Canvas("glosario1");
                     top: 30,
                     scaleX: 50 / letter_g1.width,
                     scaleY: 50 / letter_g1.height
-                }) 
-        glosario1.add(img1); 
-        glosario1.add(letter_g1); 
+                })
+        glosario1.add(img1);
+        glosario1.add(letter_g1);
+        glosario1.setBackgroundImage('img/pentagono_cafe.png', glosario1.renderAll.bind(glosario1));
         mainCanvas.push(glosario1);
 var glosario2 = new fabric.Canvas("glosario2");
         glosario2.setWidth(180);
         glosario2.setHeight(180);
-        glosario2.setBackgroundImage('img/pentagono_cafe.png', glosario2.renderAll.bind(glosario2)); 
+        glosario2.setBackgroundImage('img/pentagono_cafe.png', glosario2.renderAll.bind(glosario2));
         img2 = new Image();
         img2.src = "img/numbers/2.png";
         var img2 = new fabric.Image(img2, {
@@ -46,13 +46,13 @@ var glosario2 = new fabric.Canvas("glosario2");
                     scaleX: 50 / letter_g2.width,
                     scaleY: 50 / letter_g2.height
                 })
-        glosario2.add(img2); 
-        glosario2.add(letter_g2); 
+        glosario2.add(img2);
+        glosario2.add(letter_g2);
         mainCanvas.push(glosario2);
  var glosario3 = new fabric.Canvas("glosario3");
         glosario3.setWidth(180);
         glosario3.setHeight(180);
-        glosario3.setBackgroundImage('img/pentagono_cafe.png', glosario3.renderAll.bind(glosario3)); 
+        glosario3.setBackgroundImage('img/pentagono_cafe.png', glosario3.renderAll.bind(glosario3));
         img3 = new Image();
         img3.src = "img/numbers/3.png";
         var img3 = new fabric.Image(img3, {
@@ -71,13 +71,13 @@ var glosario2 = new fabric.Canvas("glosario2");
                     scaleX: 50 / letter_g3.width,
                     scaleY: 50 / letter_g3.height
                 })
-        glosario3.add(img3); 
-        glosario3.add(letter_g3); 
+        glosario3.add(img3);
+        glosario3.add(letter_g3);
         mainCanvas.push(glosario3);
  var glosario4 = new fabric.Canvas("glosario4");
         glosario4.setWidth(180);
         glosario4.setHeight(180);
-        glosario4.setBackgroundImage('img/pentagono_cafe.png', glosario4.renderAll.bind(glosario4)); 
+        glosario4.setBackgroundImage('img/pentagono_cafe.png', glosario4.renderAll.bind(glosario4));
         img4 = new Image();
         img4.src = "img/numbers/4.png";
         var img4 = new fabric.Image(img4, {
@@ -96,13 +96,13 @@ var glosario2 = new fabric.Canvas("glosario2");
                     scaleX: 50 / letter_g4.width,
                     scaleY: 50 / letter_g4.height
                 });
-        glosario4.add(img4); 
-        glosario4.add(letter_g4); 
+        glosario4.add(img4);
+        glosario4.add(letter_g4);
         mainCanvas.push(glosario4);
  var glosario5 = new fabric.Canvas("glosario5");
         glosario5.setWidth(180);
         glosario5.setHeight(180);
-        glosario5.setBackgroundImage('img/pentagono_cafe.png', glosario5.renderAll.bind(glosario5)); 
+        glosario5.setBackgroundImage('img/pentagono_cafe.png', glosario5.renderAll.bind(glosario5));
         img5 = new Image();
         img5.src = "img/numbers/5.png";
         var img5 = new fabric.Image(img5, {
@@ -121,13 +121,13 @@ var glosario2 = new fabric.Canvas("glosario2");
                     scaleX: 50 / letter_g5.width,
                     scaleY: 50 / letter_g5.height
                 });
-        glosario5.add(img5); 
-        glosario5.add(letter_g5); 
+        glosario5.add(img5);
+        glosario5.add(letter_g5);
         mainCanvas.push(glosario5);
 var examen1 = new fabric.Canvas("examen1");
         examen1.setWidth(180);
         examen1.setHeight(180);
-        examen1.setBackgroundImage('img/circulo_azul.png', examen1.renderAll.bind(examen1)); 
+        examen1.setBackgroundImage('img/circulo_azul.png', examen1.renderAll.bind(examen1));
         img6 = new Image();
         img6.src = "img/numbers/1.png";
         var img6 = new fabric.Image(img6, {
@@ -152,7 +152,7 @@ var examen1 = new fabric.Canvas("examen1");
 var examen2 = new fabric.Canvas("examen2");
         examen2.setWidth(180);
         examen2.setHeight(180);
-        examen2.setBackgroundImage('img/circulo_azul.png', examen2.renderAll.bind(examen2)); 
+        examen2.setBackgroundImage('img/circulo_azul.png', examen2.renderAll.bind(examen2));
         img7 = new Image();
         img7.src = "img/numbers/2.png";
         var img7 = new fabric.Image(img7, {
@@ -177,7 +177,7 @@ var examen2 = new fabric.Canvas("examen2");
  var examen3 = new fabric.Canvas("examen3");
         examen3.setWidth(180);
         examen3.setHeight(180);
-        examen3.setBackgroundImage('img/circulo_azul.png', examen3.renderAll.bind(examen3)); 
+        examen3.setBackgroundImage('img/circulo_azul.png', examen3.renderAll.bind(examen3));
         img8 = new Image();
         img8.src = "img/numbers/3.png";
         var img8 = new fabric.Image(img8, {
@@ -202,7 +202,7 @@ var examen2 = new fabric.Canvas("examen2");
  var examen4 = new fabric.Canvas("examen4");
         examen4.setWidth(180);
         examen4.setHeight(180);
-        examen4.setBackgroundImage('img/circulo_azul.png', examen4.renderAll.bind(examen4)); 
+        examen4.setBackgroundImage('img/circulo_azul.png', examen4.renderAll.bind(examen4));
         img9 = new Image();
         img9.src = "img/numbers/4.png";
         var img9 = new fabric.Image(img9, {
@@ -227,7 +227,7 @@ var examen2 = new fabric.Canvas("examen2");
  var examen5 = new fabric.Canvas("examen5");
         examen5.setWidth(180);
         examen5.setHeight(180);
-        examen5.setBackgroundImage('img/circulo_azul.png', examen5.renderAll.bind(examen5)); 
+        examen5.setBackgroundImage('img/circulo_azul.png', examen5.renderAll.bind(examen5));
         img10 = new Image();
         img10.src = "img/numbers/5.png";
         var img10 = new fabric.Image(img10, {
@@ -252,7 +252,7 @@ var examen2 = new fabric.Canvas("examen2");
  var lectura1 = new fabric.Canvas("lectura1");
         lectura1.setWidth(180);
         lectura1.setHeight(180);
-        lectura1.setBackgroundImage('img/rombo_azul.png', lectura1.renderAll.bind(lectura1)); 
+        lectura1.setBackgroundImage('img/rombo_azul.png', lectura1.renderAll.bind(lectura1));
         img11 = new Image();
         img11.src = "img/numbers/1.png";
         var img11 = new fabric.Image(img11, {
@@ -277,7 +277,7 @@ var examen2 = new fabric.Canvas("examen2");
 var lectura2 = new fabric.Canvas("lectura2");
        lectura2.setWidth(180);
        lectura2.setHeight(180);
-       lectura2.setBackgroundImage('img/rombo_azul.png', lectura2.renderAll.bind(lectura2)); 
+       lectura2.setBackgroundImage('img/rombo_azul.png', lectura2.renderAll.bind(lectura2));
        img12 = new Image();
        img12.src = "img/numbers/2.png";
         var img12 = new fabric.Image(img12, {
@@ -302,7 +302,7 @@ var lectura2 = new fabric.Canvas("lectura2");
  var lectura3 = new fabric.Canvas("lectura3");
         lectura3.setWidth(180);
         lectura3.setHeight(180);
-        lectura3.setBackgroundImage('img/rombo_azul.png', lectura3.renderAll.bind(lectura3)); 
+        lectura3.setBackgroundImage('img/rombo_azul.png', lectura3.renderAll.bind(lectura3));
         img13 = new Image();
         img13.src = "img/numbers/3.png";
         var img13 = new fabric.Image(img13, {
@@ -327,7 +327,7 @@ var lectura2 = new fabric.Canvas("lectura2");
  var lectura4 = new fabric.Canvas("lectura4");
         lectura4.setWidth(180);
         lectura4.setHeight(180);
-        lectura4.setBackgroundImage('img/rombo_azul.png', lectura4.renderAll.bind(lectura4)); 
+        lectura4.setBackgroundImage('img/rombo_azul.png', lectura4.renderAll.bind(lectura4));
         img14 = new Image();
         img14.src = "img/numbers/4.png";
         var img14 = new fabric.Image(img14, {
@@ -352,7 +352,7 @@ var lectura2 = new fabric.Canvas("lectura2");
  var lectura5 = new fabric.Canvas("lectura5");
         lectura5.setWidth(180);
         lectura5.setHeight(180);
-        lectura5.setBackgroundImage('img/rombo_azul.png', lectura5.renderAll.bind(lectura5)); 
+        lectura5.setBackgroundImage('img/rombo_azul.png', lectura5.renderAll.bind(lectura5));
         img15 = new Image();
         img15.src = "img/numbers/5.png";
         var img15 = new fabric.Image(img15, {
@@ -377,12 +377,12 @@ var lectura2 = new fabric.Canvas("lectura2");
  var exercise_canvas = new fabric.Canvas("exercise_canvas");
         exercise_canvas.setWidth(180);
         exercise_canvas.setHeight(180);
-        exercise_canvas.setBackgroundImage('img/badge_purple.png', exercise_canvas.renderAll.bind(exercise_canvas)); 
+        exercise_canvas.setBackgroundImage('img/badge_purple.png', exercise_canvas.renderAll.bind(exercise_canvas));
         mainCanvas.push(exercise_canvas);
 var bloque1 = new fabric.Canvas("bloque1");
         bloque1.setWidth(180);
         bloque1.setHeight(180);
-        bloque1.setBackgroundImage('img/rombo_verde.png', bloque1.renderAll.bind(bloque1)); 
+        bloque1.setBackgroundImage('img/rombo_verde.png', bloque1.renderAll.bind(bloque1));
         img_num = new Image();
         img_num.src = "img/numbers/one.png"
         var img_num = new fabric.Image(img_num, {
@@ -395,7 +395,7 @@ var bloque1 = new fabric.Canvas("bloque1");
 var bloque2 = new fabric.Canvas("bloque2");
         bloque2.setWidth(180);
         bloque2.setHeight(180);
-        bloque2.setBackgroundImage('img/rombo_verde.png', bloque2.renderAll.bind(bloque2)); 
+        bloque2.setBackgroundImage('img/rombo_verde.png', bloque2.renderAll.bind(bloque2));
         img_num2 = new Image();
         img_num2.src = "img/numbers/two.png"
         var img_num2 = new fabric.Image(img_num2, {
@@ -408,7 +408,7 @@ var bloque2 = new fabric.Canvas("bloque2");
 var bloque3 = new fabric.Canvas("bloque3");
         bloque3.setWidth(180);
         bloque3.setHeight(180);
-        bloque3.setBackgroundImage('img/rombo_verde.png', bloque3.renderAll.bind(bloque3)); 
+        bloque3.setBackgroundImage('img/rombo_verde.png', bloque3.renderAll.bind(bloque3));
         img_num3 = new Image();
         img_num3.src = "img/numbers/three.png"
         var img_num3 = new fabric.Image(img_num3, {

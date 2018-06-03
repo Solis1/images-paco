@@ -1,5 +1,12 @@
 $(document).ready(function() {
-    
+
+  loadImage("materiasRead");
+
+    $(document).on("change", "select[ng-name='grados']", function(){
+
+    });
+
+
     $(document).on("change", ".check-title", function(){
         var parent = $(this).parent().parent();
         if($(this).is(':checked')){
@@ -8,12 +15,9 @@ $(document).ready(function() {
             $(parent).find("input.form-control").prop("disabled", true);
         }
     });
-    
-    $('.add-img').prop('disabled', true);
-    $('.add-num').prop('disabled', true);
-    
+
     $(document).scroll(function(){
-        
+
         let scroll = window.pageYOffset ;
         if(scroll > 120){
             $("header").addClass("fix-header");
@@ -24,21 +28,21 @@ $(document).ready(function() {
             $("#logo").removeClass("smaller-img");
             $(".navbar-toggler").removeClass("smaller-menu");
            }
-        
+
     });
-    
+
     $(".show-pop").popover({
         trigger: "manual",
         delay: {
             "show": 500,
             "hide": 100
-        }  
+        }
     });
-    
+
     $(document).on("click", ".delete-img", function(){
-       
+
         let row = $(this).parent().parent();
-        
+
         switch($(row).attr("class")){
             case "row bloque1":
                     glosario1.remove(letter_g1);
@@ -69,13 +73,13 @@ $(document).ready(function() {
         console.log();
         $(row).find(".delete-img").prop('disabled', true);
         $(row).find(".add-img").prop('disabled', false);
-        
+
     });
-    
+
     $(document).on("click", ".add-img", function(){
-       
+
         let row = $(this).parent().parent();
-        
+
         switch($(row).attr("class")){
             case "row bloque1":
                     glosario1.add(letter_g1);
@@ -103,16 +107,16 @@ $(document).ready(function() {
                     lectura5.add(letter_l5);
                 break;
         }
-        
+
         $(row).find(".add-img").prop('disabled', true);
         $(row).find(".delete-img").prop('disabled', false);
-        
+
     });
-    
+
     $(document).on("click", ".delete-num", function(){
-       
+
         let row = $(this).parent().parent();
-        
+
         switch($(row).attr("class")){
             case "row bloque1":
                     glosario1.remove(img1);
@@ -140,16 +144,16 @@ $(document).ready(function() {
                     lectura5.remove(img15);
                 break;
         }
-        
+
         $(row).find(".add-num").prop('disabled', false);
         $(row).find(".delete-num").prop('disabled', true);
-        
+
     });
-    
+
     $(document).on("click", ".add-num", function(){
-       
+
         let row = $(this).parent().parent();
-        
+
         switch($(row).attr("class")){
             case "row bloque1":
                     glosario1.add(img1);
@@ -177,12 +181,12 @@ $(document).ready(function() {
                     lectura5.add(img15);
                 break;
         }
-        
+
         $(row).find(".add-num").prop('disabled', true);
         $(row).find(".delete-num").prop('disabled', false);
-        
+
     });
-    
+
     $(".imageLoader").on("change", function (e) {
         var parent_element = $(this).attr("value");
 
@@ -217,7 +221,7 @@ $(document).ready(function() {
                         scaleY: 90 / img.height
                     });
                    addImagesToCanvas(parent_element, imgInstance1, imgInstance2, imgInstance3, imgInstance4, imgInstance5);
-                   
+
                }else if(parent_element == "exercise"){
                  var imgInstance1 = new fabric.Image(img, {
                         selectable: 1,
@@ -262,10 +266,10 @@ $(document).ready(function() {
         link.setAttribute('download', "images");
         link.style.display = 'none';
         document.body.appendChild(link);
-         
+
         var zip = new JSZip();
         var img = zip.folder("images");
-        
+
         if(value === "save-read" && (numMax != numMin && numMax > numMin) && numberCanvas(numMax, numMin)){
             let canvas = $("#read").find("canvas.lower-canvas");
             var ids = [];
@@ -280,7 +284,7 @@ $(document).ready(function() {
                 console.log(idMod[0].toUpperCase());
                 ids.push(idMod.join(""));
                 if(iteCanvas % 3 == 0){
-                  ite++;  
+                  ite++;
                 }
                 if(ite > numMax){
                    ite = numMin;
@@ -292,7 +296,7 @@ $(document).ready(function() {
              }else{
                 name = $("input[name=radio]:checked").attr("value");
                 materia = $('select[ng-name="niveles"]').val();
-                 materia += $('select[ng-name="grados"]').val();  
+                 materia += $('select[ng-name="grados"]').val();
                 materia += $('select[ng-name="materias"]').val();
                 materia += $('select[ng-name="bloques"]').val();
              }
@@ -303,16 +307,16 @@ $(document).ready(function() {
             canvas.each(function(index, elem){
                 ids.push($(elem).attr("id").replace(/\b\w/g, l => l.toUpperCase()));
             });
-            
+
             if($("#checkExercise").is(':checked')){
                 nameFree = $("#inputFreeExercise").val();
                 materia = ""
             }else{
                 name = "EjeI";
                 materia = $('select[ng-name="nivelesExercise"]').val();
-                materia += $('select[ng-name="gradosExercise"]').val(); 
-                materia += $('select[ng-name="materiasExercise"]').val(); 
-                materia += $('select[ng-name="bloquesExercise"]').val(); 
+                materia += $('select[ng-name="gradosExercise"]').val();
+                materia += $('select[ng-name="materiasExercise"]').val();
+                materia += $('select[ng-name="bloquesExercise"]').val();
             }
         }else if( value === "save-help"){
             let canvas = $("#help").find("canvas.lower-canvas");
@@ -330,7 +334,7 @@ $(document).ready(function() {
                 materia += $('select[ng-name="materiasHelp"]').val();
             }
         }
-        
+
        if(ids.length > 0){
             for(var i = 1; i <= images.length; i++){
                 img.file(materia+nameFree+ids[i - 1]+name+".png", images[i-1].split('base64,')[1], {base64: true});
@@ -340,12 +344,12 @@ $(document).ready(function() {
                 // see FileSaver.js
                 saveAs(content, value+".zip");
             });
-            document.body.removeChild(link); 
+            document.body.removeChild(link);
           }
     });
-    
+
     var showModal = false;
-    
+
     $(document).keydown((evt) =>{
         switch (evt.keyCode) {
             case 46: // delete
@@ -354,10 +358,10 @@ $(document).ready(function() {
                     $(".modal").on('shown.bs.modal', function(event) {
                         $("#delete").focus();
                     });
-                    showModal = false 
+                    showModal = false
                 }
                 break;
-            case 13: 
+            case 13:
                 if($("#delete").is(":focus")) {
                     $("#delete").click();
                     $('.modal').modal("hide");
@@ -365,7 +369,7 @@ $(document).ready(function() {
                 break;
         }
     });
-    
+
     var canvasRemove;
     var canvasPopver;
 
@@ -373,7 +377,7 @@ $(document).ready(function() {
         removeImageFromCanvas(canvasRemove);
         canvasRemove = "";
         $(this).popover("show");
-        
+
     });
 
 
@@ -521,7 +525,7 @@ function removeImageFromCanvas(canvas) {
 }
 
 var zoomCanvas = (val) =>{
-    
+
     mainCanvas.forEach(function(item){
         item.setZoom(val);
         item.setWidth(180 * item.getZoom());
@@ -534,24 +538,24 @@ var numberCanvas = (max, min) =>{
     for(var i = min; i <= max; i++){
         ite++;
     }
-    
+
     if(ite == 5){
         return true;
     }else{
         return false;
     }
-    
+
 }
 
 function createArrayLinks(val){
     var images = [];
-    
+
     if($(document).width() < 1280) {
-      zoomCanvas(0.33);  
+      zoomCanvas(0.33);
     }else{
-        zoomCanvas(0.5); 
+        zoomCanvas(0.5);
     }
-        
+
     switch(val){
         case "save-read":
             images = [glosario1.toDataURL({
@@ -644,8 +648,19 @@ function createArrayLinks(val){
                         })];
             break;
     }
-    
+
     zoomCanvas(1)
-    
+
     return images;
+}
+
+var loadImage = (info) =>{
+
+  if(info == "materiasRead"){
+    for (var i = 0; i < 1; i++) {
+      mainCanvas[i].setBackgroundImage('img/levels_prim/penta_rojo.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
+      
+    }
+  }
+
 }
