@@ -1,9 +1,10 @@
 $(document).ready(function() {
 
-  loadImage("materiasRead");
+  loadImage("materiasRead", 1);
 
     $(document).on("change", "select[ng-name='grados']", function(){
-
+      console.log(typeof $(this).val());
+      loadImage("materiasRead", parseInt($(this).val()));
     });
 
 
@@ -654,12 +655,39 @@ function createArrayLinks(val){
     return images;
 }
 
-var loadImage = (info) =>{
+var loadImage = (info, level) =>{
+  var level_color;
+  switch(level) {
+    case 1:
+      level_color = 'rojo';
+      break;
+    case 2:
+      level_color = 'azu';
+      break;
+    case 3:
+      level_color = 'ama';
+      break;
+    case 4:
+      level_color = 'mora';
+      break;
+    case 5:
+      level_color = 'verd';
+      break;
+    case 6:
+      level_color = 'nar';
+      break;
+
+  }
 
   if(info == "materiasRead"){
-    for (var i = 0; i < 1; i++) {
-      mainCanvas[i].setBackgroundImage('img/levels_prim/penta_rojo.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
-      
+    for (var i = 0; i < 15; i++) {
+      if(i < 5){
+        mainCanvas[i].setBackgroundImage('img/levels_prim/penta_'+level_color+'.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
+      }else if(i < 10) {
+        mainCanvas[i].setBackgroundImage('img/levels_prim/circ_'+level_color+'.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
+      }else{
+        mainCanvas[i].setBackgroundImage('img/levels_prim/rombo_'+level_color+'.png', mainCanvas[i].renderAll.bind(mainCanvas[i]));
+      }
     }
   }
 
