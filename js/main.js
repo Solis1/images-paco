@@ -24,7 +24,7 @@ $(document).ready(function() {
     $(document).scroll(function(){
 
         let scroll = window.pageYOffset ;
-        if(scroll > 120){
+        if(scroll > 160){
             $("header").addClass("fix-header");
             $("#logo").addClass("smaller-img");
             $("button.navbar-toggler").addClass("smaller-menu");
